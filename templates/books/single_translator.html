@@ -1,0 +1,11 @@
+{% extends 'books/base.html' %}
+{% block title %}<title>{{ object.translator }}</title>{% endblock %}
+{% block content %}
+
+<h3>{{ object.translator }}</h3>
+
+    {% for book in object.book_set.all %} <a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px"> {{ book }}</a> <br>{% endfor %}<br>
+
+    Total Book: {{ object.book_set.count }}
+
+{% endblock %}

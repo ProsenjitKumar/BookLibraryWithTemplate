@@ -1,0 +1,34 @@
+{% extends 'books/base.html' %}
+{% block title %}<title>{{ object.name_of_the_book }}</title>{% endblock %}
+{% block content %}
+
+    <div style="padding-left: 39%">
+        <p><img src="{{ MEDIA_URL }}{{ object.image.url }}" style="width: 350px;height: 400px"></p>
+        <p style="color: #06a019; font-size: 30px"><span> {{ object.name_of_the_book }}</span></p>
+        <p style="color: #06a019; font-size: 30px"><span>ISBN:</span> {{ object.isbn }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>অনুবাদক:</span> {% for translation in object.translator.all %} {{ translation }},<br> {% endfor %}</p>
+        <p style="color: #06a019; font-size: 30px"><span>সংস্করণ:</span> {{ object.edition }}</p>
+        {% if object.editor is not None %}
+            <p style="color: #06a019; font-size: 30px"><span>সম্পাদক:</span> {% for editor in object.editor.all %} {{ editor }},<br> {% endfor %}</p>
+        {% endif %}
+        <p style="color: #06a019; font-size: 30px"><span>Place:</span> {{ object.place }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Pages:</span> {{ object.pages }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Language:</span> {{ object.language }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Publisher:</span> {{ object.publisher }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Author:</span> {% for author in object.author.all %} {{ author }}, <br> {% endfor %}</p>
+        <p style="color: #11a06c"><span>Summary:</span> {{ object.summary }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Category:</span> {% for category in object.category.all %} {{ category }}, <br> {% endfor %}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Published Month:</span> {{ object.month }}</p>
+        <p style="color: #06a019; font-size: 30px"><span>Published Year:</span> {{ object.year }}</p>
+        {% if object.book_pdf_url %}
+          <p style="color: #06a019; font-size: 30px"><span></span> <a href="{{ object.book_pdf_url }}">Free Pdf Download This Book</a> </p>
+        {% endif %}
+        <p style="color: #06a019; font-size: 30px"><span>Added:</span> {{ object.published }}</p>
+        <p><span>Added This Book</span> {{ object.published|timesince }} <span>ago</span></p>
+        {% load tz %}
+        {% localtime on %}
+            <p><span>Todays Date:</span> {{ now|date }} {{ now|time }}</p>
+        {% endlocaltime %}
+    </div>
+
+{% endblock %}
