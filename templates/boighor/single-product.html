@@ -18,7 +18,7 @@
         						<div class="col-lg-6 col-12">
         							<div class="wn__fotorama__wrapper">
 	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
-		        							  <a href="1.jpg"><img src="{{ MEDIA_URL }}{{ object.image.url }}" alt=""></a>
+		        							  <a href="#"><img src="{{ MEDIA_URL }}{{ object.image.url }}" alt=""></a>
 
 	        							</div>
         							</div>
@@ -30,43 +30,57 @@
         								<div class="price-box">
         									<span>{% for author in object.author.all %} {{ author }}, <br> {% endfor %}</span>
         								</div>
-										<div class="product__overview">
-        									<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.</p>
-        									<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. </p>
+                                        <div class="price-box">
+                                            <span>{{ object.publisher }}</span>
+                                        </div>
+                                        <div class="price-box">
+                                            <span>{% for translation in object.translator.all %} {{ translation }},<br> {% endfor %}</span>
+                                        </div>
+                                        <div class="price-box">
+        									<span>{% for editor in object.editor.all %} {{ editor }},<br> {% endfor %}</span>
         								</div>
         								<div class="box-tocart d-flex">
-        									<span>Qty</span><br>
+        									<span>{{ object.edition }}</span><br>
         								</div>
 										<div class="box-tocart d-flex">
-											<span>$52.00</span>
+											<span>{{ object.price }} {{ object.currency }}</span>
         								</div>
-										<div class="box-tocart d-flex">
+										<div>
 											<span>{{ object.isbn }}</span>
         								</div>
 										<div class="product_meta">
 											<span class="posted_in">Categories: 
-												<a href="#">Adventure</a>, 
-												<a href="#">Kids' Music</a>
+												<a href="#">{% for category in object.category.all %} {{ category }}, <br> {% endfor %}</a>,
 											</span>
 										</div>
+                                        <div>
+											<span>Language: {{ object.language }}</span>
+        								</div>
+                                        <div>
+											<span>Posted: {{ object.published }}</span>
+        								</div>
+                                         <div>
+											<span>Published: {{ object.month }}, {{ object.year }}</span>
+        								</div>
+                                        <div>
+											<span>Place: {{ object.place }}</span>
+        								</div>
+                                        <div>
+											<span>Page: {{ object.pages }}</span>
+        								</div>
         							</div>
         						</div>
         					</div>
         				</div>
         				<div class="product__info__detailed">
 							<div class="pro_details_nav nav justify-content-start" role="tablist">
-	                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Details</a>
+	                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Summary</a>
 	                        </div>
 	                        <div class="tab__container">
 	                        	<!-- Start Single Tab Content -->
 	                        	<div class="pro__tab_label tab-pane fade show active" id="nav-details" role="tabpanel">
 									<div class="description__attribute">
-										<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.</p>
-										<ul>
-											<li>• Two-tone gray heather hoodie.</li>
-											<li>• Drawstring-adjustable hood. </li>
-											<li>• Machine wash/dry.</li>
-										</ul>
+										<p>{{ object.summary }}</p>
 									</div>
 	                        	</div>
 	                        	<!-- End Single Tab Content -->
@@ -95,26 +109,6 @@
         							<li><a href="#">Toys & Games <span>(3)</span></a></li>
         							<li><a href="#">hoodies <span>(3)</span></a></li>
         						</ul>
-        					</aside>
-        					<aside class="wedget__categories pro--range">
-        						<h3 class="wedget__title">Filter by price</h3>
-        						<div class="content-shopby">
-        						    <div class="price_filter s-filter clear">
-        						        <form action="#" method="GET">
-        						            <div id="slider-range"></div>
-        						            <div class="slider__range--output">
-        						                <div class="price__output--wrap">
-        						                    <div class="price--output">
-        						                        <span>Price :</span><input type="text" id="amount" readonly="">
-        						                    </div>
-        						                    <div class="price--filter">
-        						                        <a href="#">Filter</a>
-        						                    </div>
-        						                </div>
-        						            </div>
-        						        </form>
-        						    </div>
-        						</div>
         					</aside>
         				</div>
         			</div>

@@ -91,14 +91,14 @@ class Author(models.Model):
     #     super(Author, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ['last_name', 'first_name']
+        ordering = ['full_name']
 
     # def get_absolute_url(self):
     #     """Returns the url to access a particular author instance."""
     #     return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.full_name}'
 
 
 class Book(models.Model):
