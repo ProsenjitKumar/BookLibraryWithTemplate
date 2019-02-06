@@ -140,7 +140,8 @@ class SingleTranslator(DetailView):
 
 class BookDetails(DetailView):
     model = Book
-    template_name = 'books/book_details.html'
+    #template_name = 'books/book_details.html'
+    template_name = 'boighor/single-product.html'
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),

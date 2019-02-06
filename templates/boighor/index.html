@@ -1,117 +1,9 @@
+{% extends 'boighor/base.html' %}
 {% load static %}
-<!doctype html>
-<html class="no-js" lang="zxx">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Home</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %}<title>Home</title>{% endblock %}
 
-	<!-- Favicons -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/icon.png">
 
-	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
-	<link rel="stylesheet" href="{% static 'style.css' %}">
-
-	<!-- Cusom css -->
-   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
-	<!-- Modernizer js -->
-	<script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
-</head>
-<body>
-	<!--[if lte IE 9]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-	<![endif]-->
-
-	<!-- Main wrapper -->
-	<div class="wrapper" id="wrapper">
-		<!-- Header -->
-		<header id="wn__header" class="header__area header__absolute sticky__header">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
-						<div class="logo">
-							<a href="index.html">
-								<img src="images/logo/logo.png" alt="logo images">
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-8 d-none d-lg-block">
-						<nav class="mainmenu__nav">
-							<ul class="meninmenu d-flex justify-content-start">
-								<li class="drop with--one--item"><a href="index.html">হোম</a></li>
-								<li class="drop"><a href="shop-grid.html">Books</a>
-									<div class="megamenu mega03">
-										<ul class="item item03">
-											<li class="title">Categories</li>
-											<li><a href="shop-grid.html">Biography </a></li>
-											<li><a href="shop-grid.html">Business </a></li>
-											<li><a href="shop-grid.html">Cookbooks </a></li>
-											<li><a href="shop-grid.html">Health & Fitness </a></li>
-											<li><a href="shop-grid.html">History </a></li>
-										</ul>
-										<ul class="item item03">
-											<li class="title">Author</li>
-											<li><a href="shop-grid.html">Mystery</a></li>
-											<li><a href="shop-grid.html">Religion & Inspiration</a></li>
-											<li><a href="shop-grid.html">Romance</a></li>
-											<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-											<li><a href="shop-grid.html">Sleeveless</a></li>
-										</ul>
-										<ul class="item item03">
-											<li class="title">Collections</li>
-											<li><a href="shop-grid.html">Science </a></li>
-											<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-											<li><a href="shop-grid.html">Self-Improvemen</a></li>
-											<li><a href="shop-grid.html">Home & Garden</a></li>
-											<li><a href="shop-grid.html">Humor Books</a></li>
-										</ul>
-									</div>
-								</li>
-								<li class="drop"><a href="shop-grid.html">Kids</a>
-									<div class="megamenu mega02">
-										<ul class="item item02">
-											<li class="title">Top Collections</li>
-											<li><a href="shop-grid.html">American Girl</a></li>
-											<li><a href="shop-grid.html">Diary Wimpy Kid</a></li>
-											<li><a href="shop-grid.html">Finding Dory</a></li>
-											<li><a href="shop-grid.html">Harry Potter</a></li>
-											<li><a href="shop-grid.html">Land of Stories</a></li>
-										</ul>
-										<ul class="item item02">
-											<li class="title">More For Kids</li>
-											<li><a href="shop-grid.html">B&N Educators</a></li>
-											<li><a href="shop-grid.html">B&N Kids' Club</a></li>
-											<li><a href="shop-grid.html">Kids' Music</a></li>
-											<li><a href="shop-grid.html">Toys & Games</a></li>
-											<li><a href="shop-grid.html">Hoodies</a></li>
-										</ul>
-									</div>
-								</li>
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
-						<ul class="header__sidebar__right d-flex justify-content-end align-items-center">
-							<li class="shop_search"><a class="search__active" href="#"></a></li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-		</header>
-		<!-- //Header -->
+{% block content %}
 		<!-- Start Search Popup -->
 		<div class="brown--color box-search-content search_active block-bg close__top">
 			<form id="search_mini_form" class="minisearch" action="#">
@@ -131,24 +23,7 @@
 		<!-- Start Best Seller Area -->
 		<section class="wn__bestseller__area bg--white pt--80  pb--30">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section__title text-center">
-							<h2 class="title__be--2">All <span class="color--theme">Products</span></h2>
-						</div>
-					</div>
-				</div>
-				<div class="row mt--50">
-					<div class="col-md-12 col-lg-12 col-sm-12">
-						<div class="product__nav nav justify-content-center" role="tablist">
-                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-all" role="tab">ALL</a>
-                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-biographic" role="tab">BIOGRAPHIC</a>
-                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-adventure" role="tab">ADVENTURE</a>
-                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-children" role="tab">CHILDREN</a>
-                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-cook" role="tab">COOK</a>
-            </div>
-					</div>
-				</div>
+
 				<!--start my post-->
 
 				<div class="container">
@@ -221,59 +96,4 @@
 		</div>
 	</section>
 
-		<!-- Best Sale Area Area -->
-		<!-- Footer Area -->
-		<footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
-			<div class="copyright__wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-12">
-							<div class="copyright">
-								<div class="copy__right__inner text-left">
-									<p>Copyright <i class="fa fa-copyright"></i> <a href="https://freethemescloud.com/">Free themes Cloud.</a> All Rights Reserved</p>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- //Footer Area -->
-		<!-- QUICKVIEW PRODUCT -->
-		<div id="quickview-wrapper">
-		    <!-- Modal -->
-		    <div class="modal fade" id="productmodal" tabindex="-1" role="dialog">
-		        <div class="modal-dialog modal__container" role="document">
-		            <div class="modal-content">
-		                <div class="modal-header modal__header">
-		                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                </div>
-		                <div class="modal-body">
-		                    <div class="modal-product">
-		                        <!-- Start product images -->
-		                        <div class="product-images">
-		                            <div class="main-image images">
-		                                <img alt="big images" src="images/product/big-img/1.jpg">
-		                            </div>
-		                        </div>
-		                        <!-- end product images -->
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!-- END QUICKVIEW PRODUCT -->
-	</div>
-	<!-- //Main wrapper -->
-
-	<!-- JS Files -->
-	<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
-	<script src="{% static 'js/popper.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'js/plugins.js' %}"></script>
-	<script src="{% static 'js/active.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}
