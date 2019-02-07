@@ -13,18 +13,26 @@
         					<div class="row">
         						<div class="col-lg-6 col-12">
         							<div class="wn__fotorama__wrapper">
+
 	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
-		        							  <a href="#"><h3>{{ object.full_name }}</h3></a>
+                                            <div>
+                                                <h1 style="color: #0b2e13">{{ object.full_name }}</h1><br>
+                                                <h3>Date Of Birth: {{ object.date_of_birth }}</h3>
+                                                <h3>Date of Death: {{ object.date_of_death }}</h3>
+                                            </div>
+
+                                            {% for book in object.book_set.all %}
+                                                <h3><span><a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px"> {{ book }}</a><br></span></h3>
+                                            {% endfor %}
 	        							</div>
+
         							</div>
         						</div>
         						<div class="col-lg-6 col-12">
         							<div class="product__info__main">
         								<h1>{{ object.name_of_the_book }}</h1>
-
         								<div class="price-box">
         									<span>{% for book in object.book_set.all %} <a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px"> {{ book }}</a> <br>{% endfor %}<br></span>
-
         								</div>
         							</div>
         						</div>

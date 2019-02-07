@@ -25,25 +25,35 @@
         								<h1>{{ object.name_of_the_book }}</h1>
 
         								<div class="price-box">
-        									<span>Author: {% for author in object.author.all %} {{ author }}, <br> {% endfor %}</span>
+                                        {% if object.author.all %}
+                                            <span>Author: {% for author in object.author.all %} {{ author }}, <br> {% endfor %}</span>
+                                        {% endif %}
         								</div>
                                         <div class="price-box">
                                             <span>Publisher: {{ object.publisher }}</span>
                                         </div>
                                         <div class="price-box">
+                                        {% if object.translator.all %}
                                             <span>Translator: {% for translation in object.translator.all %} {{ translation }},<br> {% endfor %}</span>
+                                        {% endif %}
                                         </div>
                                         <div class="price-box">
+                                        {% if object.editor.all %}
         									<span>Editor: {% for editor in object.editor.all %} {{ editor }},<br> {% endfor %}</span>
+                                        {% endif %}
         								</div>
         								<div class="box-tocart d-flex">
         									<span>Edition: {{ object.edition }}</span><br>
         								</div>
 										<div class="box-tocart d-flex">
-											<span>Price: {{ object.price }} {{ object.currency }}</span>
+                                            {% if object.price %}
+											    <span>Price: {{ object.price }} {{ object.currency }}</span>
+                                            {% endif %}
         								</div>
 										<div>
-											<span>ISBN: {{ object.isbn }}</span>
+                                            {% if object.isbn %}
+											    <span>ISBN: {{ object.isbn }}</span>
+                                            {% endif %}
         								</div>
 										<div class="product_meta">
 											<span class="posted_in">Categories: 
@@ -51,19 +61,30 @@
 											</span>
 										</div>
                                         <div>
-											<span>Language: {{ object.language }}</span>
-        								</div>
-                                        <div>
-											<span>Posted: {{ object.published }}</span>
+                                            {% if object.language %}
+											    <span>Language: {{ object.language }}</span>
+                                            {% endif %}
         								</div>
                                          <div>
 											<span>Published: {{ object.month }}, {{ object.year }}</span>
         								</div>
                                         <div>
-											<span>Place: {{ object.place }}</span>
+                                            {% if object.place %}
+											    <span>Place: {{ object.place }}</span>
+                                            {% endif %}
         								</div>
                                         <div>
-											<span>Page: {{ object.pages }}</span>
+                                            {% if object.pages %}
+											    <span>Page: {{ object.pages }}</span>
+                                            {% endif %}
+        								</div>
+                                        <div>
+                                            {% if object.book_pdf_url %}
+											    <span><a href="{{ object.book_pdf_url }}">Pdf Download</a> </span>
+                                            {% endif %}
+        								</div>
+                                        <div>
+											<span>Posted: {{ object.published }}</span>
         								</div>
         							</div>
         						</div>
@@ -91,7 +112,7 @@
         						<h3 class="wedget__title">Book Categories</h3>
                                 {% for category in category_list %}
         						<ul>
-                                    <li><a href="">{{ category.name }}<span>{{ category.book_set.count }}</span></a></li>
+                                    <li><a href="{% url 'library:single_category_details' category.slug %}">{{ category.name }}<span>{{ category.book_set.count }}</span></a></li>
         						</ul>
                                 {% endfor %}
         					</aside>

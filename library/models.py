@@ -81,8 +81,7 @@ class Publisher(models.Model):
 
 
 class Author(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Died', null=True, blank=True)
     slug = models.SlugField()
@@ -92,14 +91,14 @@ class Author(models.Model):
     #     super(Author, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ['last_name', 'first_name']
+        ordering = ['full_name',]
 
     # def get_absolute_url(self):
     #     """Returns the url to access a particular author instance."""
     #     return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.full_name}'
 
 
 class Book(models.Model):
@@ -131,11 +130,11 @@ class Book(models.Model):
                             blank=True, null=True)
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE, null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE, blank=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, blank=True, null=True)
     category = models.ManyToManyField(Category, help_text='Select category for this book', blank=True)
-    pages = models.IntegerField()
+    pages = models.IntegerField(blank=True, null=True)
     copy = models.PositiveSmallIntegerField(blank=True, null=True)
-    summary = models.TextField(max_length=1000, help_text='Enter a brief description of the book', blank=True, null=True)
+    summary = models.TextField(max_length=2000, help_text='Enter a brief description of the book', blank=True, null=True)
     image = models.ImageField(upload_to='book_photos/', blank=True, null=True)
     book_pdf_url = models.CharField(max_length=600, blank=True, null=True)
     published = models.DateTimeField(auto_now_add=True)
