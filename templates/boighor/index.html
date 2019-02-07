@@ -14,16 +14,15 @@
 
 				<div class="container">
 					<div class="row">
-						<div class="col-md-4">
-
-							{% for object in object_list %}
-                                {% if object.image %}
-								    <a href="{% url 'library:book_details' slug=object.slug %}"><img src="{{ MEDIA_URL }}{{ object.image.url }}" style="width: 150px;height: 200px"></a>
-                                    <span>{{ object.name_of_the_book }}</span>
-                                    <span>{{ object.publisher }}</span>
-                                {% endif %}
-							{% endfor %}
+                    {% for object in object_list %}
+						<div class="col-md-3 support">
+                            {% if object.image %}
+                                <a href="{% url 'library:book_details' slug=object.slug %}"><img src="{{ MEDIA_URL }}{{ object.image.url }}" style="width: 150px;height: 200px"></a>
+                                <span>{{ object.name_of_the_book }}</span>
+                                <span>{{ object.publisher }}</span>
+                            {% endif %}
 						</div>
+                    {% endfor %}
 					</div>
 				</div>
 
@@ -32,7 +31,6 @@
 
 					<!-- End Single Tab Content -->
 				</div>
-			</div>
 		</section>
 
 	<section class="wn__bestseller__area bg--white pt--80  pb--30">

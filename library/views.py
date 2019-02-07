@@ -29,7 +29,7 @@ class BookList(ListView):
     context_object_name = 'book_list'
     #template_name = 'books/book_lists.html'
     template_name = 'boighor/index.html'
-    paginate_by = 2
+    paginate_by = 8
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),
