@@ -81,7 +81,8 @@ class Publisher(models.Model):
 
 
 class Author(models.Model):
-    full_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Died', null=True, blank=True)
     slug = models.SlugField()
@@ -91,14 +92,14 @@ class Author(models.Model):
     #     super(Author, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ['full_name']
+        ordering = ['last_name', 'first_name']
 
     # def get_absolute_url(self):
     #     """Returns the url to access a particular author instance."""
     #     return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return f'{self.full_name}'
+        return f'{self.first_name} {self.last_name}'
 
 
 class Book(models.Model):

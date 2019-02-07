@@ -25,25 +25,25 @@
         								<h1>{{ object.name_of_the_book }}</h1>
 
         								<div class="price-box">
-        									<span>{% for author in object.author.all %} {{ author }}, <br> {% endfor %}</span>
+        									<span>Author: {% for author in object.author.all %} {{ author }}, <br> {% endfor %}</span>
         								</div>
                                         <div class="price-box">
-                                            <span>{{ object.publisher }}</span>
+                                            <span>Publisher: {{ object.publisher }}</span>
                                         </div>
                                         <div class="price-box">
-                                            <span>{% for translation in object.translator.all %} {{ translation }},<br> {% endfor %}</span>
+                                            <span>Translator: {% for translation in object.translator.all %} {{ translation }},<br> {% endfor %}</span>
                                         </div>
                                         <div class="price-box">
-        									<span>{% for editor in object.editor.all %} {{ editor }},<br> {% endfor %}</span>
+        									<span>Editor: {% for editor in object.editor.all %} {{ editor }},<br> {% endfor %}</span>
         								</div>
         								<div class="box-tocart d-flex">
-        									<span>{{ object.edition }}</span><br>
+        									<span>Edition: {{ object.edition }}</span><br>
         								</div>
 										<div class="box-tocart d-flex">
-											<span>{{ object.price }} {{ object.currency }}</span>
+											<span>Price: {{ object.price }} {{ object.currency }}</span>
         								</div>
 										<div>
-											<span>{{ object.isbn }}</span>
+											<span>ISBN: {{ object.isbn }}</span>
         								</div>
 										<div class="product_meta">
 											<span class="posted_in">Categories: 
@@ -89,13 +89,11 @@
         				<div class="shop__sidebar">
         					<aside class="wedget__categories poroduct--cat">
         						<h3 class="wedget__title">Book Categories</h3>
-
+                                {% for category in category_list %}
         						<ul>
-                                    <li><a href="">Engineering<span>5</span></a></li>
-                                    <li><a href="">AI<span>50</span></a></li>
-                                    <li><a href="">Technology<span>45</span></a></li>
+                                    <li><a href="">{{ category.name }}<span>{{ category.book_set.count }}</span></a></li>
         						</ul>
-
+                                {% endfor %}
         					</aside>
         				</div>
         			</div>

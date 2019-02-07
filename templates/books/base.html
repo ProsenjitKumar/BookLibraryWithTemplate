@@ -146,7 +146,7 @@
     <!-- Have to be use here List coomprehension -->
     <div class="dropdown-content">
         {% for object in author_list %}
-            <a href="{% url 'library:single_author_details' object.slug %}">{{ object.first_name }} {{ object.last_name }}</a>
+            <a href="{% url 'library:single_author_details' object.slug %}">{{ object.full_name }}</a>
         {% endfor %}
 
         {% for object in editors %}
