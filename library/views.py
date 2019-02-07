@@ -29,7 +29,7 @@ class BookList(ListView):
     context_object_name = 'book_list'
     #template_name = 'books/book_lists.html'
     template_name = 'boighor/index.html'
-    paginate_by = 8
+    paginate_by = 20
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),
@@ -44,7 +44,7 @@ class BookList(ListView):
         if query:
             object_list = self.model.objects.filter(
                 Q(name_of_the_book__icontains=query) |
-                Q(author__first_name__icontains=query) |
+                Q(author__full_name__icontains=query) |
                 Q(category__name__icontains=query)
             )
         else:

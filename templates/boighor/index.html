@@ -5,33 +5,26 @@
 
 {% block content %}
 
-
-		<!-- Start Best Seller Area -->
-		<section class="wn__bestseller__area bg--white pt--80  pb--30">
-			<div class="container">
-
-				<!--start my post-->
-
-				<div class="container">
-					<div class="row">
-                    {% for object in object_list %}
-						<div class="col-md-3 support">
-                            {% if object.image %}
-                                <a href="{% url 'library:book_details' slug=object.slug %}"><img src="{{ MEDIA_URL }}{{ object.image.url }}" style="width: 150px;height: 200px"></a>
-                                <span>{{ object.name_of_the_book }}</span>
-                                <span>{{ object.publisher }}</span>
-                            {% endif %}
-						</div>
-                    {% endfor %}
-					</div>
-				</div>
-
-				<!--end my post-->
-
-
-					<!-- End Single Tab Content -->
-				</div>
-		</section>
+    <!-- Start Best Seller Area -->
+    <section class="wn__bestseller__area bg--white pt--80  pb--30">
+        <div class="container">
+            <!--start my post-->
+            <div class="container">
+                <div class="row">
+                {% for object in object_list %}
+                    <div class="col-md-3 support" style="text-align: center">
+                        {% if object.image %}
+                            <a href="{% url 'library:book_details' slug=object.slug %}"><img src="{{ MEDIA_URL }}{{ object.image.url }}" style="width: 150px;height: 200px"></a>
+                            <h3>{{ object.name_of_the_book }}</h3>
+                            <h3>{{ object.publisher }}</h3>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            <!--end my post-->
+            </div>
+    </section>
 
 	<section class="wn__bestseller__area bg--white pt--80  pb--30">
 			<div class="container">

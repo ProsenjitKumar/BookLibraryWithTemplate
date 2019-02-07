@@ -91,6 +91,7 @@
         					</div>
         				</div>
         				<div class="product__info__detailed">
+                            {% if object.summary %}
 							<div class="pro_details_nav nav justify-content-start" role="tablist">
 	                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Summary</a>
 	                        </div>
@@ -103,6 +104,7 @@
 	                        	</div>
 	                        	<!-- End Single Tab Content -->
 	                        </div>
+                            {% endif %}
         				</div>
         			</div>
 
