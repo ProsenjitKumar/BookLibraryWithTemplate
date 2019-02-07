@@ -17,8 +17,13 @@
 	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
                                             <div>
                                                 <h1 style="color: #0b2e13">{{ object.full_name }}</h1><br>
-                                                <h3>Date Of Birth: {{ object.date_of_birth }}</h3>
-                                                <h3>Date of Death: {{ object.date_of_death }}</h3>
+                                                {% if object.date_of_birth %}
+                                                    <h3>Date Of Birth: {{ object.date_of_birth }}</h3>
+                                                {% endif %}
+
+                                                {% if object.date_of_death %}
+                                                    <h3>Date of Death: {{ object.date_of_death }}</h3>
+                                                {% endif %}
                                             </div>
 
                                             {% for book in object.book_set.all %}
