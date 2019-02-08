@@ -1,12 +1,52 @@
-{% extends 'books/base.html' %}
+{% extends 'boighor/base.html' %}
 {% block title %}<title>{{ object.language }}</title>{% endblock %}
 {% block content %}
 
-<h3>{{ object.language }}</h3>
+     	<!-- Main wrapper -->
+	<div class="wrapper" id="wrapper">
+        <!-- Start main Content -->
+        <div class="maincontent bg--white pt--80 pb--55">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-lg-9 col-12">
+        				<div class="wn__single__product">
+        					<div class="row">
+        						<div class="col-lg-6 col-12">
+        							<div class="wn__fotorama__wrapper">
 
+	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
+                                            <div>
+                                                <h1 style="color: #0b2e13">{{ object.language}}</h1><br>
+                                            </div>
+                                            {% for book in object.book_set.all %}
+                                                <h3><span><a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px"> {{ book }}</a><br></span></h3>
+                                            {% endfor %}
+	        							</div>
 
-    {% for book in object.book_set.all %} <a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px"> {{ book }}</a> <br>{% endfor %}<br>
+        							</div>
+        						</div>
+        						<div class="col-lg-6 col-12">
+        							<div class="product__info__main">
+                                        <div class="row">
+                                            {% for book in object.book_set.all %}
+                                                <div class="price-box col-md-12 support" style="text-align: center">
+                                                     <a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px">
+                                                         <h3>{{ book }}</h3></a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+        							</div>
+        						</div>
+        					</div>
+                        <span>Total Book: {{ object.book_set.count }}</span>
+        				</div>
+        			</div>
 
-    Total Book: {{ object.book_set.count }}
+        		</div>
+        	</div>
+        </div>
+        <!-- End main Content -->
+	</div>
+	<!-- //Main wrapper -->
 
 {% endblock %}

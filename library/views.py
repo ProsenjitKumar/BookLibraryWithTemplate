@@ -27,7 +27,6 @@ class HomePageView(TemplateView):
 class BookList(ListView):
     model = Book
     context_object_name = 'book_list'
-    #template_name = 'books/book_lists.html'
     template_name = 'boighor/index.html'
     paginate_by = 20
     extra_context = {
@@ -60,7 +59,7 @@ class BookList(ListView):
 
 class SingleCategoryView(DetailView):
     model = Category
-    template_name = 'books/single_category.html'
+    template_name = 'boighor/single-view/single_category.html'
     paginate_by = 12
     extra_context = {
         'category_list': Category.objects.all(),
@@ -88,7 +87,7 @@ class SingleAuthorView(DetailView):
 
 class SinglePublisher(DetailView):
     model = Publisher
-    template_name = 'books/single_publisher.html'
+    template_name = 'boighor/single-view/single_publisher.html'
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),
@@ -101,7 +100,7 @@ class SinglePublisher(DetailView):
 
 class SingleLanguage(DetailView):
     model = Language
-    template_name = 'books/single_language_list.html'
+    template_name = 'boighor/single-view/single_language_list.html'
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),
@@ -114,7 +113,7 @@ class SingleLanguage(DetailView):
 
 class SingleEditor(DetailView):
     model = Editor
-    template_name = 'books/single_editor.html'
+    template_name = 'boighor/single-view/single_editor.html'
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),
@@ -127,7 +126,7 @@ class SingleEditor(DetailView):
 
 class SingleTranslator(DetailView):
     model = Translator
-    template_name = 'books/single_translator.html'
+    template_name = 'boighor/single-view/single_translator.html'
     extra_context = {
         'category_list': Category.objects.all(),
         'author_list': Author.objects.all(),
