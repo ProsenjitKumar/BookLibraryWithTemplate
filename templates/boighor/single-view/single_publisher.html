@@ -17,6 +17,7 @@
 	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
                                             <div>
                                                 <h1 style="color: #0b2e13">{{ object.publisher}}</h1><br>
+                                                <h4><span style="color: #1c7430">Total Book: {{ object.book_set.count }}</span></h4>
                                             </div>
                                             {% for book in object.book_set.all %}
                                                 <h3><span><a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px"> {{ book }}</a><br></span></h3>
@@ -25,20 +26,19 @@
 
         							</div>
         						</div>
-        						<div class="col-lg-6 col-12">
-        							<div class="product__info__main">
-                                        <div class="row">
-                                            {% for book in object.book_set.all %}
-                                                <div class="price-box col-md-12 support" style="text-align: center">
-                                                     <a href="{% url 'library:book_details' book.slug %}"><img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px">
-                                                         <h3>{{ book }}</h3></a>
-                                                </div>
-                                            {% endfor %}
+        						<div class="container" >
+                                    <div class="row" >
+                                        {% for book in object.book_set.all %}
+                                        <div class="col-md-3 support"  style="text-align: center">
+                                         <a href="{% url 'library:book_details' book.slug %}">
+                                                <img src="{{ MEDIA_URL }}{{ book.image.url }}" style="width: 150px;height: 200px">
+                                                <h3>{{ book }}</h3>
+                                            </a>
                                         </div>
-        							</div>
-        						</div>
+                                        <br>{% endfor %}<br>
+                                    </div>
+                                </div>
         					</div>
-                        <span>Total Book: {{ object.book_set.count }}</span>
         				</div>
         			</div>
 

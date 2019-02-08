@@ -42,9 +42,14 @@ class BookList(ListView):
         query = self.request.GET.get('q')
         if query:
             object_list = self.model.objects.filter(
-                Q(name_of_the_book__icontains=query) |
-                Q(author__full_name__icontains=query) |
-                Q(category__name__icontains=query)
+                Q(name_of_the_book__contains=query) |
+                Q(author__full_name__contains=query) |
+                Q(category__name__contains=query) |
+                Q(publisher__publisher__contains=query) |
+                Q(place__contains=query) |
+                Q(translator__translator__contains=query) |
+                Q(editor__editor__contains=query) |
+                Q(language__language__contains=query)
             )
         else:
             object_list = self.model.objects.all()

@@ -22,7 +22,7 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['name_of_the_book', 'isbn', 'published', 'publisher']
+    list_display = ['name_of_the_book', 'isbn', 'image', 'published', 'publisher']
     search_fields = ['name_of_the_book', 'isbn']
     prepopulated_fields = {'slug': ('name_of_the_book',)}
 
